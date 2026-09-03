@@ -1,0 +1,9 @@
+# Java build output
+*.class
+out/
+bin/
+
+# IDE settings
+.idea/
+.vscode/
+*.iml
