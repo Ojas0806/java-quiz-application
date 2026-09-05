@@ -1,28 +1,19 @@
-import java.util.Scanner;
-
-/** Starts the Quiz Application with one question. */
+/** Starts the complete Quiz Application. */
 public class Main {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+        Quiz quiz = new Quiz();
 
-        String[] options = {"Paris", "Rome", "Madrid", "Berlin"};
-        Question question = new Question(
-                "What is the capital of France?", options, 1);
+        quiz.addQuestion(new Question(
+                "What is the capital of France?",
+                new String[]{"Paris", "Rome", "Madrid", "Berlin"}, 1));
+        quiz.addQuestion(new Question(
+                "Which keyword creates an object in Java?",
+                new String[]{"class", "new", "void", "static"}, 2));
+        quiz.addQuestion(new Question(
+                "How many days are there in a week?",
+                new String[]{"5", "6", "7", "8"}, 3));
 
-        System.out.println("Welcome to the Quiz Application!\n");
-        question.display();
-        System.out.print("Enter your answer (1-4): ");
-
-        try {
-            int answer = Integer.parseInt(scanner.nextLine());
-            System.out.println(question.isCorrect(answer)
-                    ? "Correct!"
-                    : "Incorrect. The correct answer is Paris.");
-        } catch (NumberFormatException exception) {
-            System.out.println("Please enter a valid whole number.");
-        }
-
-        scanner.close();
+        System.out.println("Welcome to the Quiz Application!");
+        quiz.start();
     }
 }
-
