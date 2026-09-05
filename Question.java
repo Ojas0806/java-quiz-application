@@ -20,4 +20,8 @@ public class Question {
     public boolean isCorrect(int answer) {
         return answer == correctAnswer;
     }
+
+    public int getOptionCount() {
+        return options.length;
+    }
 }
